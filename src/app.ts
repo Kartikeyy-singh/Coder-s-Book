@@ -3,8 +3,14 @@ const app = express();
 import globalErrorHandler from "./middlewares/globalErrorHandler";
 import userRouter from "./Users/UserRouter";
 import bookRouter from "./book/bookRouter";
+import cors from 'cors';
+import { config } from "./config/config";
+
 
 app.use(express.json());
+app.use(cors({
+    origin:config.frontenddomain,
+}));
 
 // Routes
 // Http methods: GET, POST, PUT, PATCH, DELETE
